@@ -82,18 +82,14 @@ def analyze_posts():
 
     for post in posts:
         results = {}
-
-        # Perform 3 iterations before processing the full analysis
-        for i in range(3):
-            print(f"Iteration {i+1} for post: {post}")
-            time.sleep(1)  # Pause for 1 second
+        time.sleep(0.2)  
 
         prompts = {
-            "category": f"What is the general category of this post? Respond in one word exactly.\n{post}",
+            "category": f"What is the general category of this post? Respond in one word exactly. and in one of these categories Technology, Sports, Politics, Entertainment, Business, Health, Education, Travel, Food, Fashion, Science, Environment, Gaming, Art, Social Issues, Humor, News, Personal, Automotive, Pets\n{post}",
             "language": f"What language is this post written in? Respond in one word exactly.\n{post}",
             "hashtags": f"Generate relevant hashtags for this post. (Separate them with a comma)\n{post}",
             "topic": f"Summarize the main topic of this post. (Straight to the point)\n{post}",
-            "trending_posts": f"Generate 3 new posts based on the same topic that could go viral. (Just the three new posts in the same language and separate them by a comma) \n{post}"
+            "trending_posts": f"Generate 3 new posts based on the same topic that could go viral. no other words than the post just the post(Just the three new posts in the same language and separate them by a comma) \n{post}"
         }
 
         for key, prompt in prompts.items():
